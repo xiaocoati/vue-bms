@@ -3,14 +3,14 @@
 		<el-container>
 			<el-aside width="auto">
 				<div class="logo"></div>
-					<el-menu class="nav-menu" :collapse="isCollapse" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+					<el-menu :collapse="isCollapse" :router="true" class="nav-menu" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
 						<el-submenu index="1">
 							<template slot="title">
 								<i class="el-icon-location"></i>
 								<span>用户管理</span>
 							</template>
 							<el-menu-item-group>
-								<el-menu-item index="1-1">
+								<el-menu-item index="/users">
 									<i class="el-icon-menu"></i>
 									<span>用户列表</span>
 								</el-menu-item>
@@ -43,6 +43,7 @@
 		methods: {
 			logout() {
 				localStorage.removeItem('token')
+				localStorage.removeItem('username')
 				this.$message({
 					type: 'warning',
 					message: '退出成功'
